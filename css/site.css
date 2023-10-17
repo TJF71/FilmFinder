@@ -1,0 +1,59 @@
+/* Sticky Footer */
+
+:root {
+    --tf-primary-color: #001e43;    /**/
+    --tf-secondary-color: #ff993b;
+    --tf-light-color: #dfe3e4;
+    --tf-dark-color: #1b1b1b;
+}
+
+
+html, 
+body {
+    height: 100%   
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+/* #regoion sticky footer */
+
+footer, nav.navbar{
+    background-color: var(--tf-primary-color);
+    color: var(--tf-light-color)
+}
+
+footer .bi {
+    font-size: 2rem;
+    padding-left: .5rem;
+    color: var(--tf-light-color);
+    transition: color 0.15s ease-in;
+}
+
+footer .bi:hover {
+    color: var(--tf-secondary-color);
+}
+
+.devicons {
+    font-size: 3rem;
+}
+
+.bi-check-square-fill {
+    color: var(--tf-secondary-color)
+}
+
+.app-logo {
+    max-width: 400px;
+    /* border-radius: 15px;
+    box-shadow: ; */
+}
