@@ -27,10 +27,13 @@ async function getMovies() {      // calls API and gets movies
     }
 }
 
-async function getMovie() {      // calls API and gets movies
+async function getMovie(movie_id) {      // calls API and gets movies
+
+    
+
     try {
 
-        let response = await fetch('https://api.themoviedb.org/3/movie/575264', {  // get the movie db from the net
+        let response = await fetch(`https://api.themoviedb.org/3/movie/${movie_id}`, {  // get the movie db from the net
             headers: {
                 'Authorization':`Bearer ${API_KEY}`
             }
@@ -92,6 +95,14 @@ async function showMovieDetails(clickedBtn){
     modalBody.textContent = `Movie ID is: ${movieId}`;
 
     // get theg details of the movie with that ID from TMDB API
+    
+    let moviedata = await getMovie(movieId);
 
+    
     // put thos details into my modal
+
+    
+
+
+
 }
