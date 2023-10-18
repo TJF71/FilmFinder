@@ -75,16 +75,9 @@
         </h1>
 
         <button class="btn btn-primary mb-5" onclick="displayMovies()"> get Movies </button>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g3 justify-content-center" 
-            id="movie-list">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g3 justify-content-center" id="movie-list">
             <!-- Movie cards go here -->
-
         </div>
-
-
-    </main>
-
-
 
     </main>
 
@@ -116,19 +109,42 @@
                     <h5>The Equalizer 3</h5>
                     <p class="card-text">Robert McCall finds himself at home in Southern Italy but he discovers
                         his friends are under the control of local crime bosses. As events turn deadly, McCall knows
-                        what he
-                        has to do: become his friends' protector by taking on the mafia.
+                        what he has to do: become his friends' protector by taking on the mafia.
 
                     </p>
                 </div>
                 <div class="card-footer text-end">
-                    <button class="btn btn-primary">
+                    <button class="btn btn-primary" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#movieModal"
+                    onclick="showMovieDetails(this)">
                         More Info
                     </button>
                 </div>
             </div>
         </div>
     </template>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="movieModal" tabindex="-1" aria-labelledby="movieModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="movieModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!--Bootstrap JS  -->
