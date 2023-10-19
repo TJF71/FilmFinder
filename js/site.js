@@ -28,8 +28,7 @@ async function getMovies() {      // calls API and gets movies
 }
 
 async function getMovie(movie_id) {      // calls API and gets movies
-
-    
+   
 
     try {
 
@@ -90,16 +89,32 @@ async function showMovieDetails(clickedBtn){
     // get the ID of the movie that was clicked
     let movieId = clickedBtn.getAttribute('data-movieId');
 
-    //TESTING: put the movie ID in the modal
-    let modalBody = document.querySelector('#movieModal .modal-body');
-    modalBody.textContent = `Movie ID is: ${movieId}`;
-
-    // get theg details of the movie with that ID from TMDB API
-    
     let moviedata = await getMovie(movieId);
 
+
+    //TESTING: put the movie ID in the modal
+
+    let poster  = document.querySelector('#movieModal .poster');
+    poster.src =  `https://image.tmdb.org/t/p/w500${moviedata.poster_path}`; 
+
+     
+    let Ident = document.querySelector('#movieModal .ID');
+    Ident.textContent = `Movie ID is: ${movieId}`;
+
+  
+    let budget = document.querySelector('#movieModal .budget');
+    budget.textContent = `The budget was : ${moviedata.budget  }`;
+
+    let url = document.querySelector('#movieModal .url')
+    url.textContent = `The URL is: ${moviedata.homepage}`
+
+
+    let country = document.querySelector('#moveModal .prodCountry');
+    country.textContent = `Procudtion country: ${moviedata .production_companie}`;
+
     
-    // put thos details into my modal
+    // put thos detail
+
 
     
 
