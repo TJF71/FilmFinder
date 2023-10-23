@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/css/site.css" />
 </head>
 
-<body>
+<body onload="displayMovies()">  <!--displays movie on load-->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -74,7 +74,7 @@
             Popular Movies
         </h1>
 
-        <button class="btn btn-primary mb-5" onclick="displayMovies()"> get Movies </button>
+        <!-- <button class="btn btn-primary mb-5" onclick="displayMovies()"> get Movies </button> -->  <!--dont need button anymmore-->
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g3 justify-content-center" id="movie-list">
             <!-- Movie cards go here -->
         </div>
@@ -139,19 +139,17 @@
     
                 <div class="row">
     
-                    <div class="col">
-    
-    
-    
+                    <div class="col-6">
                         <img src="#" class="poster" alt="..." height="350" width="250">
                     </div>
     
-                    <div class="col">
+                    <div class="col-6">
                         <div class="ID"></div>
                         <div class="budget"></div>
                         <div classs="prodCountry"></div>
                         <div class="url"></div>
                     </div>
+
                 </div>
     
                 <div class="modal-footer">

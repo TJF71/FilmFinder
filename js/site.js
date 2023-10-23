@@ -23,7 +23,12 @@ async function getMovies() {      // calls API and gets movies
         return data;
 
     } catch (error) {
-        console.error(error);
+        Swal.fire({
+            backdrop: false,
+            title: 'Ooops!',
+            text: 'Something went wrong reaching the TMDV API.',
+            icon: 'error'
+        })
     }
 }
 
@@ -44,7 +49,12 @@ async function getMovie(movie_id) {      // calls API and gets movies
         return data;
 
     } catch (error) {
-        console.error(error);
+        Swal.fire({
+            backdrop: false,
+            title: 'Ooops!',
+            text: 'Something went wrong reaching the TMDV API.',
+            icon: 'error'
+        })
     }
 }
 
@@ -54,6 +64,7 @@ async function displayMovies() {
     let data = await getMovies();  // call the movies from the getMovies function
 
     const movieListDiv = document.getElementById('movie-list');
+    movieListDiv.innerHTML = '';  // prevents repeats of adds of movie list
     const moviePosterTemplate = document.getElementById('movie-card-template');
 
     let movies = data.results;   // create a variable from the results
@@ -103,7 +114,7 @@ async function showMovieDetails(clickedBtn){
 
   
     let budget = document.querySelector('#movieModal .budget');
-    budget.textContent = `The budget was : ${moviedata.budget  }`;
+    budget.textContent = `The budget was : ${moviedata.budget}`;
 
     let url = document.querySelector('#movieModal .url')
     url.textContent = `The URL is: ${moviedata.homepage}`
