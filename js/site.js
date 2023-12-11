@@ -148,8 +148,8 @@ async function showMovieDetails(clickedBtn) {
     country.textContent = `Procudtion country: ${moviedata.production_companie}`;
 
 
-    let homepage = document.getElementById('movieHomepageBtn');
-    homepage.href = moviedata.homepage;
+    let movieHomepage = document.getElementById('movieHomepageBtn');
+    movieHomepage.href = moviedata.homepage;
 
 
 
