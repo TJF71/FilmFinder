@@ -148,6 +148,9 @@ async function showMovieDetails(clickedBtn) {
     country.textContent = `Procudtion country: ${moviedata.production_companie}`;
 
 
+    let movieHomePage = document.querySelector('a');
+    movieHomePage.getAttribute("href")
+    movieHomePage.setAttribute = ('href', `"${movieData.homepage}"` );
     // put thos detail
 
 
