@@ -133,15 +133,17 @@ async function showMovieDetails(clickedBtn) {
     poster.src = `https://image.tmdb.org/t/p/w500${moviedata.poster_path}`;
 
 
-    let Ident = document.querySelector('#movieModal .ID');
-    Ident.textContent = `Movie ID is: ${movieId}`;
+    // let Ident = document.querySelector('#movieModal .ID');
+    // Ident.textContent = `Movie ID is: ${movieId}`;
 
+    let movieOverview = document.querySelector('#movieModal .movieOverview');
+    movieOverview.textContent = `Overview: ${moviedata.overview}`;
 
     let budget = document.querySelector('#movieModal .budget');
     budget.textContent = `The budget was : ${moviedata.budget}`;
 
-    let url = document.querySelector('#movieModal .url')
-    url.textContent = `The Movie site is located at : ${moviedata.homepage}`
+    // let url = document.querySelector('#movieModal .url')
+    // url.textContent = `The Movie site is located at : ${moviedata.homepage}`
 
 
     // let country = document.querySelector('#moveModal .prodCountry');
