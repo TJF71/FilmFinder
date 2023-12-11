@@ -5,7 +5,7 @@ async function getMovies() {      // calls API and gets movies
 
         let response = await fetch('https://api.themoviedb.org/3/movie/popular', {  // get the movie db from the net
             headers: {
-                'Authorization':`Bearer ${API_KEY}`
+                'Authorization': `Bearer ${API_KEY}`
             }
         });
 
@@ -18,7 +18,7 @@ async function getMovies() {      // calls API and gets movies
                 total_pages: 29045,
                 total_results: 817902
             }
-        */ 
+        */
 
         return data;
 
@@ -33,13 +33,13 @@ async function getMovies() {      // calls API and gets movies
 }
 
 async function getMovie(movie_id) {      // calls API and gets movies
-   
+
 
     try {
 
         let response = await fetch(`https://api.themoviedb.org/3/movie/${movie_id}`, {  // get the movie db from the net
             headers: {
-                'Authorization':`Bearer ${API_KEY}`
+                'Authorization': `Bearer ${API_KEY}`
             }
         });
 
@@ -71,31 +71,55 @@ async function displayMovies() {
 
 
     for (let i = 0; i < movies.length; i++) {
-        
+
         let movie = movies[i];  // cycle through each movie one at a time
 
         let movieCard = moviePosterTemplate.content.cloneNode(true);  // get a copy of template and assign it
 
         let movieImageElement = movieCard.querySelector('.card-img-top');  // lock onto .card-img-top template
         movieImageElement.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;  //load the image to movieImageElement
-        
+
         let movieTitleElement = movieCard.querySelector('.card-body > h5');  // get the move title from app.html
         movieTitleElement.textContent = movie.title;  // target movie title only and apply it
 
         let movieParagraphElement = movieCard.querySelector('.card-text')  // target the element of .card-text
-        movieParagraphElement.textContent =  movie.overview;  // target movie overview and apply it
-        
+        movieParagraphElement.textContent = movie.overview;  // target movie overview and apply it
+
         let movieButton = movieCard.querySelector('.btn-primary');
         movieButton.setAttribute('data-movieId', movie.id);
 
         movieListDiv.appendChild(movieCard); // adding movie details to the card movieListDiv
-        
+
 
     }
 }
 
+// get the movie genres
+async function getGenres() {
 
-async function showMovieDetails(clickedBtn){
+    // attempting to get genre dae from the movie database
+    try {
+
+        // wait for async response from URL
+        let response = await fetch(`https://api.themoviedb.org/3/genre/movie/list`, {
+            headers: {
+                'Authorization': `Bearer ${API_KEY}`
+            }
+        });
+
+        // take the string returned back adn convert it to JSON object
+        let data = await response.json();
+
+        return data;
+
+        // if something goes wrong, run this backup code
+    } catch (error) {
+        console.error(error);
+    }
+
+}
+
+async function showMovieDetails(clickedBtn) {
 
     // get the ID of the movie that was clicked
     let movieId = clickedBtn.getAttribute('data-movieId');
@@ -105,29 +129,29 @@ async function showMovieDetails(clickedBtn){
 
     //TESTING: put the movie ID in the modal
 
-    let poster  = document.querySelector('#movieModal .poster');
-    poster.src =  `https://image.tmdb.org/t/p/w500${moviedata.poster_path}`; 
+    let poster = document.querySelector('#movieModal .poster');
+    poster.src = `https://image.tmdb.org/t/p/w500${moviedata.poster_path}`;
 
-     
+
     let Ident = document.querySelector('#movieModal .ID');
     Ident.textContent = `Movie ID is: ${movieId}`;
 
-  
+
     let budget = document.querySelector('#movieModal .budget');
     budget.textContent = `The budget was : ${moviedata.budget}`;
 
     let url = document.querySelector('#movieModal .url')
-    url.textContent = `The URL is: ${moviedata.homepage}`
+    url.textContent = `The Movie site is located at : ${moviedata.homepage}`
 
 
     let country = document.querySelector('#moveModal .prodCountry');
-    country.textContent = `Procudtion country: ${moviedata .production_companie}`;
+    country.textContent = `Procudtion country: ${moviedata.production_companie}`;
 
-    
+
     // put thos detail
 
 
-    
+
 
 
 
