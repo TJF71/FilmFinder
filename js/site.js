@@ -139,8 +139,10 @@ async function showMovieDetails(clickedBtn) {
     let movieOverview = document.querySelector('#movieOverview');
     movieOverview.innerHTML = `<strong>Overview: </strong> ${moviedata.overview}`;
 
+    let format = {style: 'currency', currency: 'USD'};
+
     let movieBudget = document.querySelector('#movieBudget');
-    movieBudget.innerHTML = `<strong>Budget: </strong> ${moviedata.budget}`;
+    movieBudget.innerHTML = `<strong>Budget: </strong> ${moviedata.budget.toLocaleString('en-US', format)}`;
 
     let movieRuntime = document.querySelector('#movieRuntime');
     movieRuntime.innerHTML = `<strong>Runtime: </strong> ${moviedata.runtime} minutes` ;
