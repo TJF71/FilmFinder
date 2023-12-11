@@ -164,27 +164,26 @@ async function showMovieDetails(clickedBtn) {
     let movieReleaseDate = document.querySelector('#movieReleaseDate');
     movieReleaseDate.innerHTML = `<strong>Release Date: </strong> ${new Date(moviedata.release_date).toLocaleDateString('en-US', dateFormat)}`;
 
+    // ADD GENRES
     let movieGenres = document.querySelector('#movieGenres');
     let genres = [];
-    for (let i=0; i < moviedata.genres.length; i++){
-        genres += moviedata.genres[i].name + ', ';
+
+    for (let i = 0; i < moviedata.genres.length; i++) {
+        genres.push(moviedata.genres[i].name);
     }
-    movieGenres.innerHTML = `<strong>Genres: </strong>${genres}`;
+        let genreString = genres.join(', ');
 
-    // let url = document.querySelector('#movieModal .url')
-    // url.textContent = `The Movie site is located at : ${moviedata.homepage}`
-
-
-    // let country = document.querySelector('#moveModal .prodCountry');
-    // country.textContent = `Procudtion country: ${moviedata.production_companie}`;
-
+    movieGenres.innerHTML = `<strong>Genres: </strong>${genreString}`;
 
     let movieHomepage = document.getElementById('movieHomepageBtn');
     movieHomepage.href = moviedata.homepage;
 
 
-
-
-
-
 }
+
+// let url = document.querySelector('#movieModal .url')
+// url.textContent = `The Movie site is located at : ${moviedata.homepage}`
+
+
+// let country = document.querySelector('#moveModal .prodCountry');
+// country.textContent = `Procudtion country: ${moviedata.production_companie}`;
