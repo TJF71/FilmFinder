@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/css/site.css" />
 </head>
 
-<body onload="displayMovies()">  <!--displays movie on load-->
+<body onload="displayMovies()"> <!--displays movie on load-->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -74,7 +74,8 @@
             Popular Movies
         </h1>
 
-        <!-- <button class="btn btn-primary mb-5" onclick="displayMovies()"> get Movies </button> -->  <!--dont need button anymmore-->
+        <!-- <button class="btn btn-primary mb-5" onclick="displayMovies()"> get Movies </button> -->
+        <!--dont need button anymmore-->
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g3 justify-content-center" id="movie-list">
             <!-- Movie cards go here -->
         </div>
@@ -96,10 +97,8 @@
                     </p>
                 </div>
                 <div class="card-footer text-end">
-                    <button class="btn btn-primary" 
-                    data-bs-toggle="modal" 
-                    data-bs-target="#movieModal"
-                    onclick="showMovieDetails(this)">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#movieModal"
+                        onclick="showMovieDetails(this)">
                         More Info
                     </button>
                 </div>
@@ -118,27 +117,28 @@
                     <h1 class="modal-title fs-5" id="movieModalLabel">Movie Details </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-    
-                <div class="row">
-    
-                    <div class="col-6">
-                        <img src="#" class="poster" alt="..." height="350" width="250">
-                    </div>
-    
-                    <div class="col-6">
-                        <!-- <div class="ID"></div> -->
-                        <div class="movieOverview"></div>
-                        <div class="budget"></div>
-                        <div class="prodCountry"></div>                        
-                        <!-- <div class="url"></div> -->
-                    </div>
 
+                <div class="modal-boday">
+                    <div class="row">
+                        <div class="col">
+                            <img src="#" class="poster img-fluid" alt="..." height="400">
+                        </div>
+
+                        <div class="col">
+                            <!-- <div class="ID"></div> -->
+                            <p class="movieOverview"></p>
+                            <p class="budget"></p>
+                            <p class="runtime"> minutes </p>
+                            <!-- <div class="url"></div> -->
+                        </div>
+                    </div>
                 </div>
-    
+
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <!-- <button type="button" class="btn btn-primary">Go To Site</button> -->
-                    <a href="" class="btn btn-primary", id="movieHomepageBtn" target="_blank"> Go To Site</a>
+                    <a href="" class="btn btn-primary" , id="movieHomepageBtn" target="_blank"> Go To Site</a>
                 </div>
             </div>
         </div>

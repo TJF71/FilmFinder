@@ -137,10 +137,14 @@ async function showMovieDetails(clickedBtn) {
     // Ident.textContent = `Movie ID is: ${movieId}`;
 
     let movieOverview = document.querySelector('#movieModal .movieOverview');
-    movieOverview.textContent = `Overview: ${moviedata.overview}`;
+    movieOverview.innerHTML = `<strong>Overview: </strong> ${moviedata.overview}`;
 
     let budget = document.querySelector('#movieModal .budget');
-    budget.textContent = `The budget was : ${moviedata.budget}`;
+    budget.innerHTML = `<strong>Budget: </strong> ${moviedata.budget}`;
+
+    let runtime = document.querySelector('#movieModal .runtime');
+    runtime.innerHTML = `<strong>Runtime: </strong> ${moviedata.runtime} minutes` ;
+
 
     // let url = document.querySelector('#movieModal .url')
     // url.textContent = `The Movie site is located at : ${moviedata.homepage}`
