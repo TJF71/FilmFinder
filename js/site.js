@@ -144,8 +144,8 @@ async function showMovieDetails(clickedBtn) {
     url.textContent = `The Movie site is located at : ${moviedata.homepage}`
 
 
-    let country = document.querySelector('#moveModal .prodCountry');
-    country.textContent = `Procudtion country: ${moviedata.production_companie}`;
+    // let country = document.querySelector('#moveModal .prodCountry');
+    // country.textContent = `Procudtion country: ${moviedata.production_companie}`;
 
 
     let movieHomepage = document.getElementById('movieHomepageBtn');
