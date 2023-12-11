@@ -164,6 +164,12 @@ async function showMovieDetails(clickedBtn) {
     let movieReleaseDate = document.querySelector('#movieReleaseDate');
     movieReleaseDate.innerHTML = `<strong>Release Date: </strong> ${new Date(moviedata.release_date).toLocaleDateString('en-US', dateFormat)}`;
 
+    let movieGenres = document.querySelector('#movieGenres');
+    let genres = [];
+    for (let i=0; i < moviedata.genres.length; i++){
+        genres += moviedata.genres[i].name + ', ';
+    }
+    movieGenres.innerHTML = `<strong>Genres: </strong>${genres}`;
 
     // let url = document.querySelector('#movieModal .url')
     // url.textContent = `The Movie site is located at : ${moviedata.homepage}`
